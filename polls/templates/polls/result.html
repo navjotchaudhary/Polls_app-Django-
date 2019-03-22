@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ question.question_text }}
+
+<ul>
+
+        {% for choice in question.choice_set.all %}
+    <li>{{choice.choice_text}} --  {{ choice.votes }} vote{{choice.votes|pluralize}}
+    </li>
+    {% endfor %}
+</ul>
+
+<strong><a href ='{%url "polls:detail" question.id %}'>vote again?</a></strong><hr>
+<strong><a href ='{%url "polls:index" %}'>all questions again?</a></strong>
+</body>
+</html>
+
+
+
+
+
+
+
